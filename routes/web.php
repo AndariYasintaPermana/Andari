@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\form;
+use App\Http\Controllers\hasil;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,7 @@ Route::get('/', function () {
 
 Route::get('/', [form::class,'index']);
 Route::post('/inputan', [form::class,'store']);
+
+Route::get('/view', [hasil::class,'index']);
+Route::get('/edit/{id}', [hasil::class,'edit']);
+Route::post('/update',[hasil::class,'update']);

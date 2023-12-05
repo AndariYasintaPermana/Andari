@@ -22,6 +22,8 @@
 <body>
   @yield('form')
 
+  @yield('hasil')
+  
   <!-- plugins:js -->
   <script src="{{ asset('/template/vendors/js/vendor.bundle.base.js')}}"></script>
   <!-- endinject -->
