@@ -44,6 +44,7 @@
             <tbody>
               @foreach ($form as $key)
                 <tr>
+                  <td>{{ $key -> id}}</td>
                   <td>{{ $key -> kb}}</td>
                   <td>{{ $key -> nama}}</td>
                   <td>{{ $key -> jv}}</td>
@@ -52,7 +53,8 @@
                   <td>{{ $key -> HargaPembelian}}</td>
                   <td>{{ $key -> Diskon}}</td>
                   <td>{{ $key -> JumlahPembayaran}}</td>
-                  <td><button type="button" onclick="window.location.href='{{url('edit/'.$key->kb)}}';" class="btn btn-warning">Edit</button></td>
+                  <td><button type="button" onclick="window.location.href='{{url('edit/'.$key->id)}}';" class="btn btn-warning">Edit</button><br> <br>
+                    <button type="button" onclick="window.location.href='{{url('delete/'.$key->id)}}';" class="btn btn-secondary">Hapus</button></td>
                 </tr>  
               @endforeach
             </tbody>

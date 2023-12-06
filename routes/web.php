@@ -15,13 +15,14 @@ use App\Http\Controllers\hasil;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-});
+// Route::get('/', function () {
+//     //return view('welcome');
+// });
 
 Route::get('/', [form::class,'index']);
 Route::post('/inputan', [form::class,'store']);
 
 Route::get('/view', [hasil::class,'index']);
 Route::get('/edit/{id}', [hasil::class,'edit']);
-Route::post('/update',[hasil::class,'update']);
+Route::post('/update/{id}',[hasil::class,'update']);
+Route::get('/delete/{id}',[hasil::class, 'destroy']);

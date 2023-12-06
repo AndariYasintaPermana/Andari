@@ -45,28 +45,29 @@ class hasil extends Controller
      */
     public function edit(string $id)
     {
-        $form = Input::where('kb', $id)->get();
+        $form = Input::find($id)->get();
         return view('edit_product',compact('form'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request, string $id)
     {
-        $data([
+
+        $data=[
             'kb' => $request->kb,
             'nama' => $request->nama,
             'jv' => $request->jv,
             'qty' => $request->qty,
             'hj' => $request->hj,
-            'HargaPembelian' => $nilai_total,
-            'Diskon' => $diskon,
-            'JumlahPembayaran' => $jumlah_pembayaran
-        ]);
-        $proses = Input::find($data[0])->update($data);
-
-        return view('hasil',compact('form'));
+            'HargaPembelian' => $request->nilai_total,
+            'Diskon' => $request->diskon,
+            'JumlahPembayaran' => $request->jumlah
+        ];
+        
+        $proses = Input::find($id)->update($data);
+        return redirect('/view')->with('success','Data berhasil disimpan');
     }
 
     /**
@@ -74,7 +75,7 @@ class hasil extends Controller
      */
     public function destroy(string $id)
     {
-        //$form = Input::where('id', $id)->delete();
-        //return redirect('hasil/inputan');
+        Input::find($id)->delete();
+        return redirect('/view')->with('success','Data berhasil disimpan');
     }
 }

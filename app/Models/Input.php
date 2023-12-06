@@ -10,6 +10,7 @@ class Input extends Model
 {
     use SoftDeletes;
     protected $table = ('Inputs');
+    protected $primary_key = ('id');
     protected $fillable = [
         'kb',
         'nama',
